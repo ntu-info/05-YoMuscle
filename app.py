@@ -28,7 +28,7 @@ def create_app():
 
     @app.get("/", endpoint="health")
     def health():
-        return "<p>Server working!</p>"
+        return "<p><H1>Server working!</H1></p>"
 
     @app.get("/img", endpoint="show_img")
     def show_img():
@@ -36,12 +36,48 @@ def create_app():
 
     @app.get("/terms/<term>/studies", endpoint="terms_studies")
     def get_studies_by_term(term):
-        return term
+        # 將底線換成空格
+        term = term.replace("_", " ")
+        eng = get_engine()
+        try:
+            with eng.begin() as conn:
+                conn.execute(text("SET search_path TO ns, public;"))
+                query = text("""
+                    SELECT DISTINCT study_id
+                    FROM ns.annotations_terms
+                    WHERE term LIKE :term
+                """)
+                rows = conn.execute(query, {"term": f"%{term}%"}).mappings().all()
+                studies = [row["study_id"] for row in rows]
+            return jsonify({
+                "term": term,
+                "study_count": len(studies),
+                "studies": studies
+            }), 200
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
 
     @app.get("/locations/<coords>/studies", endpoint="locations_studies")
     def get_studies_by_coordinates(coords):
         x, y, z = map(int, coords.split("_"))
-        return jsonify([x, y, z])
+        eng = get_engine()
+        try:
+            with eng.begin() as conn:
+                conn.execute(text("SET search_path TO ns, public;"))
+                query = text("""
+                    SELECT DISTINCT study_id
+                    FROM ns.coordinates
+                    WHERE ST_X(geom) = :x AND ST_Y(geom) = :y AND ST_Z(geom) = :z
+                """)
+                rows = conn.execute(query, {"x": x, "y": y, "z": z}).mappings().all()
+                studies = [row["study_id"] for row in rows]
+            return jsonify({
+                "coordinates": [x, y, z],
+                "study_count": len(studies),
+                "studies": studies
+            }), 200
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
 
     @app.get("/test_db", endpoint="test_db")
     
