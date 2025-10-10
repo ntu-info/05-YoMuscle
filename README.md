@@ -23,6 +23,7 @@ The service provides two APIs that return studies mentioning one concept/coordin
 - [Requirements](#requirements)
 - [Notes](#notes)
 - [License](#license)
+- [Result] (#Result-and-some-additional-tools)
 
 ---
 
@@ -155,20 +156,21 @@ curl https://<your-app>.onrender.com/dissociate/locations/-2_50_-6/0_-52_26
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-## Result and some additional tools I used for debbugging
-**By terms**
-```
+---
+
+## Result and some additional tools
+
 https://neurosynth-backend.onrender.com/dissociate/terms/ventromedial_prefrontal/posterior_cingulate
 
 https://neurosynth-backend.onrender.com/dissociate/terms/posterior_cingulate/ventromedial_prefrontal
-```
+
 
 **By coordinates**
-```
+
 https://neurosynth-backend.onrender.com/dissociate/locations/0_-52_26/-2_50_-6
 
 https://neurosynth-backend.onrender.com/dissociate/locations/-2_50_-6/0_-52_26
-```
+
 
 **Tools for debugging**
 1. 查詢 term 是否存在資料庫
