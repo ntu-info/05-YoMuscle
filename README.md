@@ -161,6 +161,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 ## Result and some additional tools
 
 **By terms**
+
 https://neurosynth-backend.onrender.com/dissociate/terms/posterior_cingulate/ventromedial_prefrontal
 
 https://neurosynth-backend.onrender.com/dissociate/terms/ventromedial_prefrontal/posterior_cingulate
