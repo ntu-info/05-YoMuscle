@@ -155,4 +155,28 @@ curl https://<your-app>.onrender.com/dissociate/locations/-2_50_-6/0_-52_26
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-## Discussion
+## Result and some additional tools I used for debbugging
+**By terms**
+```
+https://neurosynth-backend.onrender.com/dissociate/terms/ventromedial_prefrontal/posterior_cingulate
+
+https://neurosynth-backend.onrender.com/dissociate/terms/posterior_cingulate/ventromedial_prefrontal
+```
+
+**By coordinates**
+```
+https://neurosynth-backend.onrender.com/dissociate/locations/0_-52_26/-2_50_-6
+
+https://neurosynth-backend.onrender.com/dissociate/locations/-2_50_-6/0_-52_26
+```
+
+**Tools for debugging**
+1. 查詢 term 是否存在資料庫
+   範例: https://neurosynth-backend.onrender.com/search_term/prefrontal
+
+2. 查詢 terms 的 study_id 數量
+   範例: https://neurosynth-backend.onrender.com/terms/posterior_cingulate/count
+
+3. 查詢 term_a 和 term_b 交集的數量
+   範例: https://neurosynth-backend.onrender.com/terms/posterior_cingulate/ventromedial_prefrontal/intersection_count
+
