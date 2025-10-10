@@ -23,7 +23,7 @@ The service provides two APIs that return studies mentioning one concept/coordin
 - [Requirements](#requirements)
 - [Notes](#notes)
 - [License](#license)
-- [Result] (#Result-and-some-additional-tools)
+- [Result and some additional tools](#Result-and-some-additional-tools)
 
 ---
 
