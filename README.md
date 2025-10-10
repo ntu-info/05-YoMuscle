@@ -175,12 +175,15 @@ https://neurosynth-backend.onrender.com/dissociate/locations/-2_50_-6/0_-52_26
 
 
 **Tools for debugging**
-1. 查詢 term 是否存在資料庫
+1. 查詢 location 的 study_id 數量
+   範例: https://neurosynth-backend.onrender.com/locations/0_-52_26/studies
+
+2. 查詢 term 是否存在資料庫
    範例: https://neurosynth-backend.onrender.com/search_term/prefrontal
 
-2. 查詢 terms 的 study_id 數量
-   範例: https://neurosynth-backend.onrender.com/terms/posterior_cingulate/count
+3. 查詢 terms 的 study_id 數量
+   範例: https://neurosynth-backend.onrender.com/terms/posterior_cingulate/studies
 
-3. 查詢 term_a 和 term_b 交集的數量
+4. 查詢 term_a 和 term_b 交集的數量
    範例: https://neurosynth-backend.onrender.com/terms/posterior_cingulate/ventromedial_prefrontal/intersection_count
 
